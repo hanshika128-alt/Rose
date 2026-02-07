@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You 🌹 - Happy Rose Day</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --blush-pink: #ffcce6;
+            --cream: #fff5e6;
+            --baby-red: #ff9999;
+            --soft-pink: #ffebf2;
+            --rose-red: #ff4d6d;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cream);
+            color: #5a3d3d;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        /* Floating roses/petals animation */
+        .petals {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .petal {
+            position: absolute;
+            background-color: var(--baby-red);
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.6;
+            animation: float linear infinite;
+        }
+        
+        @keyframes float {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        /* Header / Landing Section */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--cream) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: var(--rose-red);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #8a5a5a;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .heart {
+            color: var(--rose-red);
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        /* Section styling */
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--rose-red);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        /* Meaning of Rose Section */
+        .meaning-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(255, 153, 153, 0.1);
+        }
+        
+        .meaning-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .meaning-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .meaning-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .meaning-text p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            line-height: 1.8;
+            color: #7a5252;
+        }
+        
+        /* Love Letter Section */
+        #love-letter {
+            background-color: var(--soft-pink);
+        }
+        
+        .letter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 153, 153, 0.2);
+            position: relative;
+            border: 1px solid var(--blush-pink);
+        }
+        
+        .letter-container:before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px dashed var(--baby-red);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+        
+        .letter-content {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: #6a4a4a;
+        }
+        
+        .letter-signature {
+            text-align: right;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--rose-red);
+            margin-top: 40px;
+        }
+        
+        /* Reasons Section */
+        .reasons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .reason-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 153, 153, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid var(--baby-red);
+        }
+        
+        .reason-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 153, 153, 0.2);
+        }
+        
+        .reason-icon {
+            font-size: 2.5rem;
+            color: var(--rose-red);
+            margin-bottom: 20px;
+        }
+        
+        .reason-text {
+            font-size: 1.3rem;
+            color: #7a5252;
+        }
+        
+        /* Rose GIF Section */
+        .gif-section {
+            background-color: var(--blush-pink);
+            text-align: center;
+        }
+        
+        .gif-container {
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gif-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .gif-caption {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--rose-red);
+            margin-top: 30px;
+        }
+        
+        /* Ending Section */
+        .ending-section {
+            text-align: center;
+            padding: 100px 0;
+            background: linear-gradient(to bottom, var(--cream) 0%, var(--soft-pink) 100%);
+        }
+        
+        .rose-btn {
+            display: inline-block;
+            background-color: var(--rose-red);
+            color: white;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+            transition: all 0.3s;
+        }
+        
+        .rose-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--rose-red);
+        }
+        
+        /* Hidden Music Controls */
+        .hidden-music-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            z-index: 1000;
+            opacity: 0.3;
+            transition: opacity 0.3s;
+        }
+        
+        .hidden-music-controls:hover {
+            opacity: 1;
+        }
+        
+        .music-toggle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: var(--rose-red);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(255, 77, 109, 0.4);
+            transition: transform 0.3s;
+        }
+        
+        .music-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.8rem;
+            }
+            
+            .meaning-text p {
+                font-size: 1.5rem;
+            }
+            
+            .letter-content {
+                font-size: 1.3rem;
+            }
+            
+            .letter-container {
+                padding: 40px 20px;
+            }
+            
+            .gif-caption {
+                font-size: 2rem;
+            }
+            
+            .hidden-music-controls {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .meaning-container {
+                padding: 20px;
+            }
+            
+            .reasons-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hidden-music-controls {
+                bottom: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating petals -->
+    <div class="petals" id="petals"></div>
+    
+    <!-- Background Music with online source -->
+    <audio id="bgMusic" loop>
+        <!-- Using a beautiful copyright-free romantic piano music from Pixabay -->
+        <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-sunset-687.mp3" type="audio/mpeg">
+        Your browser does not support background music.
+    </audio>
+    
+    <!-- Minimal hidden music toggle -->
+    <div class="hidden-music-controls">
+        <button id="musicToggle" class="music-toggle" title="Toggle background music">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+    
+    <!-- Home / Landing Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>For You <span class="heart">🌹</span></h1>
+                <p class="tagline">Happy Rose Day, My Love</p>
+                <p style="font-size: 1.3rem; color: #8a6a6a; max-width: 600px; margin: 0 auto;">
+                    This little corner of the internet is only for you.
+                </p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Meaning of Rose Section -->
+    <section id="meaning">
+        <div class="container">
+            <h2 class="section-title">The Meaning of a Rose</h2>
+            <div class="meaning-container">
+                <div class="meaning-image">
+                    <img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Beautiful Rose">
+                </div>
+                <div class="meaning-text">
+                    <p>
+                        "A rose isn't just a flower.<br>
+                        It's patience, love, care…<br>
+                        and everything I feel for you."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Love Letter Section -->
+    <section id="love-letter">
+        <div class="container">
+            <h2 class="section-title">My Love Letter to You</h2>
+            <div class="letter-container">
+                <div class="letter-content">
+                    <p>My dearest,</p>
+                    <p style="margin-top: 20px;">
+                        From the day you came into my life, ordinary moments started feeling special. 
+                        This rose is a small symbol of something big — how much you mean to me, 
+                        how deeply I care, and how grateful I am for you.
+                    </p>
+                    <p style="margin-top: 20px;">
+                        Every petal represents a beautiful memory we've created together, 
+                        every thorn reminds me of the challenges we've overcome, 
+                        and the fragrance symbolizes the sweetness you bring to my life.
+                    </p>
+                    <p style="margin-top: 20px;">
+                        You are my sunshine on cloudy days, my comfort in difficult times, 
+                        and my greatest joy in everyday moments.
+                    </p>
+                    <div class="letter-signature">
+                        Happy Rose Day my love <span class="heart">❤️ 🌹</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Reasons Section -->
+    <section id="reasons">
+        <div class="container">
+            <h2 class="section-title">Reasons I'd Give You a Rose</h2>
+            <div class="reasons-container">
+                <div class="reason-card">
+                    <div class="reason-icon">💗</div>
+                    <div class="reason-text">Because you make me smile effortlessly</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">🏡</div>
+                    <div class="reason-text">Because you feel like home</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">🌷</div>
+                    <div class="reason-text">Because you're kind, patient, and real</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">❤️</div>
+                    <div class="reason-text">Because I love you more each day</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">✨</div>
+                    <div class="reason-text">Because you make ordinary moments magical</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">🌹</div>
+                    <div class="reason-text">Because you deserve all the roses in the world</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Rose GIF Section -->
+    <section class="gif-section">
+        <div class="container">
+            <div class="gif-container">
+                <img src="https://i.pinimg.com/originals/85/d9/23/85d923801d54719a2b5db84f8c8d5f6e.gif" alt="Rose Bouquet Animation">
+            </div>
+            <p class="gif-caption">"If I could, I'd give you a thousand roses today."</p>
+        </div>
+    </section>
+    
+    <!-- Ending Section -->
+    <section class="ending-section">
+        <div class="container">
+            <a href="#" class="rose-btn">This rose is yours. Always.</a>
+            <div class="signature">
+                — Yours <span class="heart">❤️</span>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Create floating petals
+        function createPetals() {
+            const petalsContainer = document.getElementById('petals');
+            const petalCount = 25;
+            
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+                
+                // Random size
+                const size = Math.random() * 20 + 10;
+                petal.style.width = `${size}px`;
+                petal.style.height = `${size}px`;
+                
+                // Random position
+                petal.style.left = `${Math.random() * 100}vw`;
+                
+                // Random animation duration
+                const duration = Math.random() * 20 + 10;
+                petal.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                petal.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // Random color variation
+                const hue = Math.random() * 20 + 340;
+                petal.style.backgroundColor = `hsl(${hue}, 100%, 70%)`;
+                
+                petalsContainer.appendChild(petal);
+            }
+        }
+        
+        // Background music functionality (completely hidden)
+        const musicToggle = document.getElementById('musicToggle');
+        const bgMusic = document.getElementById('bgMusic');
+        let isPlaying = false;
+        
+        // Set initial volume to 40% for subtle background music
+        bgMusic.volume = 0.4;
+        
+        // Try to auto-play music on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const playPromise = bgMusic.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    // Music started automatically
+                    isPlaying = true;
+                    musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+                }).catch(() => {
+                    // Auto-play was prevented
+                    isPlaying = false;
+                    musicToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                });
+            }
+        });
+        
+        // Toggle music with hidden button
+        musicToggle.addEventListener('click', function() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+                bgMusic.play();
+                musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+            isPlaying = !isPlaying;
+        });
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            createPetals();
+            
+            // Add a subtle fade-in effect to sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.8s, transform 0.8s';
+            });
+            
+            // Trigger the fade-in effect on scroll
+            function checkScroll() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight - 100) {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+        
