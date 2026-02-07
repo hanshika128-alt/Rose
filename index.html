@@ -244,11 +244,16 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
         }
         
         .gif-container img {
-            width: 100%;
-            height: auto;
+            max-width: 100%;
+            max-height: 100%;
             display: block;
         }
         
@@ -291,20 +296,21 @@
             color: var(--rose-red);
         }
         
-        /* Hidden Music Controls */
-        .hidden-music-controls {
+        /* Music Controls */
+        .music-controls {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             z-index: 1000;
-            opacity: 0.3;
-            transition: opacity 0.3s;
+            opacity: 0.8;
+            transition: all 0.3s;
         }
         
-        .hidden-music-controls:hover {
+        .music-controls:hover {
             opacity: 1;
+            transform: scale(1.1);
         }
         
         .music-toggle {
@@ -314,17 +320,36 @@
             background-color: var(--rose-red);
             border: none;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(255, 77, 109, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.5);
             transition: transform 0.3s;
         }
         
         .music-toggle:hover {
             transform: scale(1.1);
+        }
+        
+        .music-info {
+            position: absolute;
+            top: -30px;
+            right: 0;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: var(--rose-red);
+            white-space: nowrap;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .music-controls:hover .music-info {
+            opacity: 1;
         }
         
         /* Responsive styles */
@@ -357,11 +382,15 @@
                 font-size: 2rem;
             }
             
-            .hidden-music-controls {
+            .gif-container {
+                height: 300px;
+            }
+            
+            .music-controls {
                 bottom: 15px;
                 right: 15px;
-                width: 45px;
-                height: 45px;
+                width: 50px;
+                height: 50px;
             }
         }
         
@@ -382,11 +411,15 @@
                 grid-template-columns: 1fr;
             }
             
-            .hidden-music-controls {
+            .gif-container {
+                height: 250px;
+            }
+            
+            .music-controls {
                 bottom: 10px;
                 right: 10px;
-                width: 40px;
-                height: 40px;
+                width: 45px;
+                height: 45px;
             }
         }
     </style>
@@ -395,16 +428,17 @@
     <!-- Floating petals -->
     <div class="petals" id="petals"></div>
     
-    <!-- Background Music with soft romantic piano -->
+    <!-- Background Music -->
     <audio id="bgMusic" loop>
         <!-- Beautiful soft romantic piano music -->
         <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-sunset-687.mp3" type="audio/mpeg">
         Your browser does not support background music.
     </audio>
     
-    <!-- Minimal hidden music toggle -->
-    <div class="hidden-music-controls">
-        <button id="musicToggle" class="music-toggle" title="Toggle background music">
+    <!-- Music Controls -->
+    <div class="music-controls">
+        <div class="music-info">Click to play music</div>
+        <button id="musicToggle" class="music-toggle" title="Click to play romantic music">
             <i class="fas fa-music"></i>
         </button>
     </div>
@@ -415,9 +449,7 @@
             <div class="header-content">
                 <h1>For You <span class="heart">🌹</span></h1>
                 <p class="tagline">Happy Rose Day, My Love</p>
-                <p style="font-size: 1.3rem; color: #8a6a6a; max-width: 600px; margin: 0 auto;">
-                    This little corner of the internet is only for you.
-                </p>
+                <!-- REMOVED: "This little corner of the internet is only for you." -->
             </div>
         </div>
     </header>
@@ -441,29 +473,30 @@
         </div>
     </section>
     
-    <!-- ❤️ 3. Love Letter Section (MOST IMPORTANT) -->
+    <!-- ❤️ 3. Love Letter Section (YOUR CUSTOM LETTER) -->
     <section id="love-letter">
         <div class="container">
             <h2 class="section-title">My Love Letter to You</h2>
             <div class="letter-container">
                 <div class="letter-content">
-                    <p>My dearest,</p>
+                    <p><strong>My Dear Axam ❤️</strong></p>
                     <p style="margin-top: 20px;">
-                        From the day you came into my life, ordinary moments started feeling special. 
-                        This rose is a small symbol of something big — how much you mean to me, 
-                        how deeply I care, and how grateful I am for you.
+                        Happy Rose Day! 
+                        I wanted to send you something special to kick off Valentine's Week. 
+                        They say roses are the universal symbol of love, but honestly, 
+                        no flower could ever be as handsome or as wonderful as you are.
                     </p>
                     <p style="margin-top: 20px;">
-                        Every petal represents a beautiful memory we've created together, 
-                        every thorn reminds me of the challenges we've overcome, 
-                        and the fragrance symbolizes the sweetness you bring to my life.
+                        Thank you for being the person who adds so much color and fragrance to my life. 
+                        Just like a rose, our relationship is beautiful and rare, 
+                        and I promise to keep nurturing it every single day.
                     </p>
                     <p style="margin-top: 20px;">
-                        You are my sunshine on cloudy days, my comfort in difficult times, 
-                        and my greatest joy in everyday moments.
+                        You're my favorite person, today and always.
                     </p>
                     <div class="letter-signature">
-                        Happy Rose Day my love <span class="heart">❤️ 🌹</span>
+                        Love you forever,<br>
+                        Hanshika <span class="heart">❤️</span>
                     </div>
                 </div>
             </div>
@@ -499,8 +532,8 @@
     <section class="gif-section">
         <div class="container">
             <div class="gif-container">
-                <!-- Beautiful working rose bouquet GIF -->
-                <img src="https://media.giphy.com/media/l0MYHnqKkkk8lRgkU/giphy.gif" alt="Rose Bouquet Animation">
+                <!-- WORKING Rose Bouquet GIF -->
+                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdng0emM4cm9uYmlhN2t5bTdzZG9rNWlqeGVxejc1bmV4MXFrb25rYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0MYHnqKkkk8lRgkU/giphy.gif" alt="Rose Bouquet Animation">
             </div>
             <p class="gif-caption">"If I could, I'd give you a thousand roses today."</p>
         </div>
@@ -554,66 +587,46 @@
         const bgMusic = document.getElementById('bgMusic');
         let isPlaying = false;
         
-        // Set initial volume to 40% for soft background music
-        bgMusic.volume = 0.4;
+        // Set initial volume to 50%
+        bgMusic.volume = 0.5;
         
-        // Try to auto-play music on page load
+        // Function to play music
+        function playMusic() {
+            bgMusic.play()
+                .then(() => {
+                    isPlaying = true;
+                    musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+                    musicToggle.title = "Click to pause music";
+                    console.log("Music started playing");
+                })
+                .catch(error => {
+                    console.log("Music play failed:", error);
+                    // Show user they need to click to play
+                    musicToggle.innerHTML = '<i class="fas fa-play"></i>';
+                    musicToggle.title = "Click to play romantic music";
+                });
+        }
+        
+        // Initialize music on user interaction
+        function initMusicOnInteraction() {
+            document.body.addEventListener('click', function startMusic() {
+                if (!isPlaying) {
+                    playMusic();
+                }
+                document.body.removeEventListener('click', startMusic);
+            }, { once: true });
+        }
+        
+        // Start music when page loads (will work on some browsers)
         document.addEventListener('DOMContentLoaded', function() {
             const playPromise = bgMusic.play();
             
             if (playPromise !== undefined) {
                 playPromise.then(() => {
-                    // Music started automatically
                     isPlaying = true;
-                    musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+                    musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+                    musicToggle.title = "Click to pause music";
                 }).catch(() => {
                     // Auto-play was prevented
                     isPlaying = false;
-                    musicToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
-                });
-            }
-        });
-        
-        // Toggle music with hidden button
-        musicToggle.addEventListener('click', function() {
-            if (isPlaying) {
-                bgMusic.pause();
-                musicToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
-            } else {
-                bgMusic.play();
-                musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
-            }
-            isPlaying = !isPlaying;
-        });
-        
-        // Initialize animations
-        document.addEventListener('DOMContentLoaded', function() {
-            createPetals();
-            
-            // Add a subtle fade-in effect to sections
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.8s, transform 0.8s';
-            });
-            
-            // Trigger the fade-in effect on scroll
-            function checkScroll() {
-                sections.forEach(section => {
-                    const sectionTop = section.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (sectionTop < windowHeight - 100) {
-                        section.style.opacity = '1';
-                        section.style.transform = 'translateY(0)';
-                    }
-                });
-            }
-            
-            window.addEventListener('scroll', checkScroll);
-            checkScroll(); // Initial check
-        });
-    </script>
-</body>
-</html>
+              
