@@ -103,6 +103,8 @@
             border-radius: 20px;
             margin: 40px auto;
             box-shadow: 0 10px 30px rgba(255, 182, 193, 0.2);
+            position: relative;
+            overflow: hidden;
         }
         
         .meaning-content {
@@ -117,12 +119,18 @@
             flex: 1;
             min-width: 300px;
             text-align: center;
+            position: relative;
         }
         
         .rose-image img {
             max-width: 100%;
             height: auto;
             filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+            transition: transform 0.5s ease;
+        }
+        
+        .rose-image img:hover {
+            transform: scale(1.05);
         }
         
         .meaning-text {
@@ -140,6 +148,30 @@
             font-size: 1.5rem;
             color: #7A4A58;
             line-height: 1.8;
+        }
+        
+        /* Animated Single Rose */
+        .single-rose {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0;
+            z-index: 0;
+            animation: bloomRose 4s ease-in-out forwards;
+        }
+        
+        @keyframes bloomRose {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2) rotate(5deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.7;
+            }
         }
         
         /* Love Letter Section */
@@ -233,31 +265,44 @@
             color: #7A4A58;
         }
         
-        /* GIF Section */
-        .gif-section {
+        /* Bouquet Image Section */
+        .bouquet-section {
             text-align: center;
             padding: 60px 20px;
+            position: relative;
         }
         
-        .gif-container {
-            max-width: 500px;
+        .bouquet-container {
+            max-width: 700px;
             margin: 0 auto 30px;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(209, 77, 114, 0.2);
+            box-shadow: 0 20px 40px rgba(209, 77, 114, 0.25);
+            position: relative;
+            transition: transform 0.5s ease;
         }
         
-        .gif-container img {
+        .bouquet-container:hover {
+            transform: scale(1.02);
+        }
+        
+        .bouquet-container img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.5s ease;
         }
         
-        .gif-caption {
+        .bouquet-caption {
             font-size: 1.8rem;
             color: #D14D72;
             font-family: 'Dancing Script', cursive;
-            margin-top: 20px;
+            margin-top: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(209, 77, 114, 0.1);
         }
         
         /* Ending Section */
@@ -286,6 +331,7 @@
         .rose-button:hover {
             background-color: #D14D72;
             transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(209, 77, 114, 0.4);
         }
         
         .signature {
@@ -293,6 +339,7 @@
             font-size: 2.5rem;
             color: #D14D72;
             margin-top: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         /* Footer */
@@ -317,6 +364,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            backdrop-filter: blur(5px);
         }
         
         .music-btn {
@@ -331,11 +379,18 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .music-btn:hover {
+            background-color: #D14D72;
+            transform: scale(1.1);
         }
         
         .music-text {
             font-size: 0.9rem;
             color: #D14D72;
+            font-weight: 500;
         }
         
         /* Responsive */
@@ -346,6 +401,7 @@
             .letter-header h2 { font-size: 2rem; }
             .letter-container { padding: 30px 20px; }
             .meaning-content, .reasons-grid { gap: 30px; }
+            .bouquet-container { max-width: 90%; }
         }
     </style>
 </head>
@@ -379,6 +435,9 @@
     
     <!-- Meaning of Rose Section -->
     <section class="meaning-section">
+        <!-- Animated single roses will be added here by JavaScript -->
+        <div id="single-rose-container"></div>
+        
         <div class="meaning-content">
             <div class="rose-image">
                 <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Beautiful Red Rose">
@@ -436,12 +495,12 @@
         </div>
     </section>
     
-    <!-- Rose GIF Section -->
-    <section class="gif-section">
-        <div class="gif-container">
-            <img src="https://i.pinimg.com/originals/9f/00/12/9f0012a18d6f63c1fcb3a2ce8f5e3e8f.gif" alt="Beautiful Rose Bouquet">
+    <!-- Rose Bouquet Section -->
+    <section class="bouquet-section">
+        <div class="bouquet-container">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Beautiful Rose Bouquet">
         </div>
-        <div class="gif-caption">
+        <div class="bouquet-caption">
             "If I could, I'd give you a thousand roses today."
         </div>
     </section>
@@ -506,6 +565,42 @@
             }
         }
         
+        // Create animated single roses in the meaning section
+        function createSingleRoses() {
+            const roseContainer = document.getElementById('single-rose-container');
+            const roseCount = 8;
+            
+            // Rose emojis and symbols
+            const roseSymbols = ['🌹', '🌹', '🌹', '❤️', '💗', '💖', '💕', '🌸'];
+            
+            for (let i = 0; i < roseCount; i++) {
+                const rose = document.createElement('div');
+                rose.classList.add('single-rose');
+                
+                // Random rose symbol
+                rose.innerHTML = roseSymbols[i];
+                
+                // Random position
+                rose.style.left = `${Math.random() * 90 + 5}%`;
+                rose.style.top = `${Math.random() * 80 + 10}%`;
+                
+                // Random size
+                const size = Math.random() * 2 + 2;
+                rose.style.fontSize = `${size}rem`;
+                
+                // Random animation delay
+                rose.style.animationDelay = `${Math.random() * 2}s`;
+                
+                // Random color for some roses
+                if (i > 2) {
+                    const colors = ['#FF7BA3', '#D14D72', '#FFB6C1', '#FF1493'];
+                    rose.style.color = colors[Math.floor(Math.random() * colors.length)];
+                }
+                
+                roseContainer.appendChild(rose);
+            }
+        }
+        
         // Music player functionality
         const playBtn = document.getElementById('playBtn');
         const bgMusic = document.getElementById('bgMusic');
@@ -516,88 +611,7 @@
                 bgMusic.pause();
                 playBtn.innerHTML = '<i class="fas fa-play"></i>';
             } else {
-                bgMusic.play();
-                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            }
-            isPlaying = !isPlaying;
-        });
-        
-        // Create floating hearts in header
-        function createFloatingHearts() {
-            const header = document.querySelector('header');
-            const heartCount = 8;
-            
-            for (let i = 0; i < heartCount; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('floating-heart');
-                
-                // Random emoji
-                const emojis = ['🌹', '❤️', '💗', '💖', '💕'];
-                const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-                heart.textContent = randomEmoji;
-                
-                // Random position
-                heart.style.left = `${Math.random() * 90 + 5}%`;
-                heart.style.top = `${Math.random() * 80 + 10}%`;
-                
-                // Random animation delay
-                heart.style.animationDelay = `${Math.random() * 5}s`;
-                
-                header.appendChild(heart);
-            }
-        }
-        
-        // Initialize everything when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            createPetals();
-            createFloatingHearts();
-            
-            // Add click effect to the rose button
-            const roseButton = document.querySelector('.rose-button');
-            roseButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Create a burst of hearts
-                for (let i = 0; i < 15; i++) {
-                    const heart = document.createElement('div');
-                    heart.innerHTML = '❤️';
-                    heart.style.position = 'fixed';
-                    heart.style.fontSize = '1.5rem';
-                    heart.style.color = '#FF7BA3';
-                    heart.style.zIndex = '10000';
-                    heart.style.pointerEvents = 'none';
-                    
-                    // Start from button position
-                    const buttonRect = roseButton.getBoundingClientRect();
-                    heart.style.left = `${buttonRect.left + buttonRect.width/2}px`;
-                    heart.style.top = `${buttonRect.top + buttonRect.height/2}px`;
-                    
-                    document.body.appendChild(heart);
-                    
-                    // Animate heart
-                    const angle = Math.random() * Math.PI * 2;
-                    const velocity = 2 + Math.random() * 2;
-                    const vx = Math.cos(angle) * velocity;
-                    const vy = Math.sin(angle) * velocity;
-                    const opacity = 1;
-                    
-                    let posX = 0;
-                    let posY = 0;
-                    let frame = 0;
-                    
-                    function animateHeart() {
-                        frame++;
-                        posX += vx;
-                        posY += vy + frame * 0.05; // Gravity effect
-                        
-                        heart.style.transform = `translate(${posX}px, ${posY}px)`;
-                        heart.style.opacity = opacity - frame * 0.02;
-                        
-                        if (frame < 50) {
-                            requestAnimationFrame(animateHeart);
-                        } else {
-                            document.body.removeChild(heart);
-                        }
-                    }
-                    
-                    animateHeart();
+                bgMusic.play().catch(e => {
+                    console.log("Audio play failed:", e);
+                    // Show a message to the user
+                    alert("Please interact with the page first to play the music. Click anywhere and try a
