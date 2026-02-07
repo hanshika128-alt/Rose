@@ -105,6 +105,7 @@
             box-shadow: 0 10px 30px rgba(255, 182, 193, 0.2);
             position: relative;
             overflow: hidden;
+            min-height: 500px;
         }
         
         .meaning-content {
@@ -113,6 +114,8 @@
             align-items: center;
             justify-content: center;
             gap: 50px;
+            position: relative;
+            z-index: 2;
         }
         
         .rose-image {
@@ -125,52 +128,67 @@
         .rose-image img {
             max-width: 100%;
             height: auto;
-            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
-            transition: transform 0.5s ease;
+            max-height: 400px;
+            filter: drop-shadow(0 15px 25px rgba(209, 77, 114, 0.3));
+            transition: all 0.5s ease;
+            border-radius: 10px;
         }
         
         .rose-image img:hover {
-            transform: scale(1.05);
+            transform: scale(1.05) rotate(2deg);
         }
         
         .meaning-text {
             flex: 1;
             min-width: 300px;
+            position: relative;
+            z-index: 2;
         }
         
         .meaning-text h2 {
             font-size: 3rem;
             color: #D14D72;
             margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         .meaning-text p {
             font-size: 1.5rem;
             color: #7A4A58;
             line-height: 1.8;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
         }
         
         /* Animated Single Rose */
         .single-rose {
             position: absolute;
-            font-size: 3rem;
+            font-size: 4rem;
             opacity: 0;
-            z-index: 0;
-            animation: bloomRose 4s ease-in-out forwards;
+            z-index: 1;
+            animation: bloomRose 5s ease-in-out forwards;
+            filter: drop-shadow(0 5px 15px rgba(209, 77, 114, 0.4));
+            pointer-events: none;
         }
         
         @keyframes bloomRose {
             0% {
-                transform: scale(0) rotate(0deg);
+                transform: scale(0) rotate(-20deg);
                 opacity: 0;
             }
-            50% {
-                transform: scale(1.2) rotate(5deg);
+            30% {
+                transform: scale(1.3) rotate(5deg);
                 opacity: 0.9;
+            }
+            60% {
+                transform: scale(1.1) rotate(-2deg);
+                opacity: 1;
             }
             100% {
                 transform: scale(1) rotate(0deg);
-                opacity: 0.7;
+                opacity: 0.9;
             }
         }
         
@@ -265,25 +283,30 @@
             color: #7A4A58;
         }
         
-        /* Bouquet Image Section */
+        /* Red Rose Bouquet Section */
         .bouquet-section {
             text-align: center;
             padding: 60px 20px;
             position: relative;
+            background: linear-gradient(135deg, #FFF9FB 0%, #FFE8F0 100%);
+            border-radius: 20px;
+            margin: 40px auto;
         }
         
         .bouquet-container {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto 30px;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(209, 77, 114, 0.25);
+            box-shadow: 0 25px 50px rgba(209, 77, 114, 0.3);
             position: relative;
             transition: transform 0.5s ease;
+            border: 8px solid white;
         }
         
         .bouquet-container:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
+            box-shadow: 0 30px 60px rgba(209, 77, 114, 0.4);
         }
         
         .bouquet-container img {
@@ -294,15 +317,16 @@
         }
         
         .bouquet-caption {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #D14D72;
             font-family: 'Dancing Script', cursive;
             margin-top: 25px;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             display: inline-block;
-            padding: 10px 30px;
+            padding: 15px 40px;
             border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(209, 77, 114, 0.1);
+            box-shadow: 0 10px 20px rgba(209, 77, 114, 0.15);
+            border: 2px solid #FFD1DC;
         }
         
         /* Ending Section */
@@ -316,22 +340,23 @@
         
         .rose-button {
             display: inline-block;
-            background-color: #FF7BA3;
+            background: linear-gradient(135deg, #FF7BA3, #D14D72);
             color: white;
             font-size: 1.8rem;
             font-family: 'Dancing Script', cursive;
-            padding: 15px 40px;
+            padding: 18px 45px;
             border-radius: 50px;
             text-decoration: none;
             margin-bottom: 50px;
-            box-shadow: 0 10px 20px rgba(255, 123, 163, 0.3);
+            box-shadow: 0 15px 30px rgba(255, 123, 163, 0.4);
             transition: all 0.3s ease;
+            border: 2px solid white;
         }
         
         .rose-button:hover {
-            background-color: #D14D72;
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(209, 77, 114, 0.4);
+            background: linear-gradient(135deg, #D14D72, #FF7BA3);
+            transform: scale(1.08);
+            box-shadow: 0 20px 40px rgba(209, 77, 114, 0.5);
         }
         
         .signature {
@@ -365,10 +390,11 @@
             align-items: center;
             gap: 10px;
             backdrop-filter: blur(5px);
+            border: 1px solid #FFD1DC;
         }
         
         .music-btn {
-            background-color: #FF7BA3;
+            background: linear-gradient(135deg, #FF7BA3, #D14D72);
             color: white;
             border: none;
             width: 40px;
@@ -383,8 +409,8 @@
         }
         
         .music-btn:hover {
-            background-color: #D14D72;
             transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(209, 77, 114, 0.3);
         }
         
         .music-text {
@@ -402,6 +428,8 @@
             .letter-container { padding: 30px 20px; }
             .meaning-content, .reasons-grid { gap: 30px; }
             .bouquet-container { max-width: 90%; }
+            .bouquet-caption { font-size: 1.6rem; padding: 12px 25px; }
+            .single-rose { font-size: 3rem; }
         }
     </style>
 </head>
@@ -435,12 +463,12 @@
     
     <!-- Meaning of Rose Section -->
     <section class="meaning-section">
-        <!-- Animated single roses will be added here by JavaScript -->
+        <!-- Animated single rose will be added here by JavaScript -->
         <div id="single-rose-container"></div>
         
         <div class="meaning-content">
             <div class="rose-image">
-                <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Beautiful Red Rose">
+                <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80" alt="Beautiful Red Rose" id="main-rose">
             </div>
             <div class="meaning-text">
                 <h2>A Rose Isn't Just a Flower</h2>
@@ -495,10 +523,10 @@
         </div>
     </section>
     
-    <!-- Rose Bouquet Section -->
+    <!-- Red Rose Bouquet Section -->
     <section class="bouquet-section">
         <div class="bouquet-container">
-            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Beautiful Rose Bouquet">
+            <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Beautiful Red Rose Bouquet" id="red-bouquet">
         </div>
         <div class="bouquet-caption">
             "If I could, I'd give you a thousand roses today."
@@ -521,14 +549,14 @@
         // Create falling petals
         function createPetals() {
             const petalsContainer = document.getElementById('petals-container');
-            const petalCount = 25;
+            const petalCount = 30;
             
             for (let i = 0; i < petalCount; i++) {
                 const petal = document.createElement('div');
                 petal.classList.add('petal');
                 
                 // Random size
-                const size = Math.random() * 20 + 10;
+                const size = Math.random() * 25 + 10;
                 petal.style.width = `${size}px`;
                 petal.style.height = `${size}px`;
                 
@@ -536,12 +564,13 @@
                 petal.style.left = `${Math.random() * 100}vw`;
                 petal.style.top = `${Math.random() * -100}px`;
                 
-                // Random color variation
-                const hue = Math.random() * 20 + 330; // Pink hues
-                petal.style.backgroundColor = `hsl(${hue}, 100%, 85%)`;
+                // Random color variation - mostly red/pink petals
+                const hue = Math.random() * 30 + 330; // Red-pink hues
+                const saturation = Math.random() * 30 + 70; // High saturation
+                petal.style.backgroundColor = `hsl(${hue}, ${saturation}%, 75%)`;
                 
                 // Random animation
-                const duration = Math.random() * 10 + 10;
+                const duration = Math.random() * 12 + 8;
                 const delay = Math.random() * 5;
                 petal.style.animation = `fall ${duration}s linear ${delay}s infinite`;
                 
@@ -553,7 +582,7 @@
                     @keyframes fall {
                         0% {
                             transform: translateY(0) rotate(0deg);
-                            opacity: 0.7;
+                            opacity: 0.8;
                         }
                         100% {
                             transform: translateY(100vh) rotate(360deg);
@@ -565,53 +594,23 @@
             }
         }
         
-        // Create animated single roses in the meaning section
-        function createSingleRoses() {
+        // Create a beautiful single rose in the meaning section
+        function createSingleRose() {
             const roseContainer = document.getElementById('single-rose-container');
-            const roseCount = 8;
             
-            // Rose emojis and symbols
-            const roseSymbols = ['🌹', '🌹', '🌹', '❤️', '💗', '💖', '💕', '🌸'];
+            // Create the main single rose
+            const rose = document.createElement('div');
+            rose.classList.add('single-rose');
+            rose.innerHTML = '🌹';
             
-            for (let i = 0; i < roseCount; i++) {
-                const rose = document.createElement('div');
-                rose.classList.add('single-rose');
-                
-                // Random rose symbol
-                rose.innerHTML = roseSymbols[i];
-                
-                // Random position
-                rose.style.left = `${Math.random() * 90 + 5}%`;
-                rose.style.top = `${Math.random() * 80 + 10}%`;
-                
-                // Random size
-                const size = Math.random() * 2 + 2;
-                rose.style.fontSize = `${size}rem`;
-                
-                // Random animation delay
-                rose.style.animationDelay = `${Math.random() * 2}s`;
-                
-                // Random color for some roses
-                if (i > 2) {
-                    const colors = ['#FF7BA3', '#D14D72', '#FFB6C1', '#FF1493'];
-                    rose.style.color = colors[Math.floor(Math.random() * colors.length)];
-                }
-                
-                roseContainer.appendChild(rose);
-            }
-        }
-        
-        // Music player functionality
-        const playBtn = document.getElementById('playBtn');
-        const bgMusic = document.getElementById('bgMusic');
-        let isPlaying = false;
-        
-        playBtn.addEventListener('click', function() {
-            if (isPlaying) {
-                bgMusic.pause();
-                playBtn.innerHTML = '<i class="fas fa-play"></i>';
-            } else {
-                bgMusic.play().catch(e => {
-                    console.log("Audio play failed:", e);
-                    // Show a message to the user
-                    alert("Please interact with the page first to play the music. Click anywhere and try a
+            // Position near the text
+            rose.style.left = '60%';
+            rose.style.top = '50%';
+            rose.style.transform = 'translate(-50%, -50%)';
+            
+            // Larger size
+            rose.style.fontSize = '5rem';
+            rose.style.color = '#D14D72';
+            rose.style.zIndex = '1';
+            
+            rose
