@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For You 🌹 - Happy Rose Day</title>
+    <title>For You 🌹 | Happy Rose Day, My Love</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,18 +13,10 @@
             box-sizing: border-box;
         }
         
-        :root {
-            --blush-pink: #ffcce6;
-            --cream: #fff5e6;
-            --baby-red: #ff9999;
-            --soft-pink: #ffebf2;
-            --rose-red: #ff4d6d;
-        }
-        
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--cream);
-            color: #5a3d3d;
+            background-color: #fff9fb;
+            color: #5a3d5c;
             overflow-x: hidden;
             line-height: 1.6;
         }
@@ -40,606 +32,577 @@
             position: relative;
         }
         
-        /* Floating roses/petals animation - FIXED */
-        .petals {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 999;
+        h1, h2 {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
         }
         
-        .petal {
-            position: absolute;
-            background-color: var(--baby-red);
-            border-radius: 50% 0 50% 50%;
-            opacity: 0.6;
-            width: 20px;
-            height: 20px;
-            animation-name: float;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(-100px) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
+        h2 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #d14d72;
         }
         
         /* Header / Landing Section */
-        header {
-            min-height: 100vh;
+        #landing {
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--cream) 100%);
+            background: linear-gradient(135deg, #fff9fb 0%, #ffecf1 100%);
             position: relative;
             overflow: hidden;
         }
         
-        .header-content {
-            z-index: 2;
+        .landing-content {
+            z-index: 10;
+            position: relative;
             max-width: 800px;
-            padding: 20px;
+            padding: 0 20px;
         }
         
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 5rem;
-            color: var(--rose-red);
+        .landing-content h1 {
+            font-size: 4.5rem;
+            color: #d14d72;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
         
-        .tagline {
+        .landing-content p {
+            font-size: 1.5rem;
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: #8a5a5a;
-            margin-bottom: 30px;
-            font-weight: 500;
-        }
-        
-        .heart {
-            color: var(--rose-red);
-            animation: heartbeat 1.5s infinite;
-        }
-        
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        /* Section styling */
-        .section-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            color: var(--rose-red);
-            text-align: center;
-            margin-bottom: 50px;
+            color: #9d5c7e;
+            margin-bottom: 40px;
+            font-style: italic;
         }
         
         /* Meaning of Rose Section */
-        .meaning-container {
+        #meaning {
+            background-color: #fff;
+        }
+        
+        .meaning-content {
             display: flex;
             align-items: center;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 50px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(255, 153, 153, 0.1);
-        }
-        
-        .meaning-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-        
-        .meaning-image img {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .meaning-text {
             flex: 1;
             min-width: 300px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            padding: 30px;
+            border-radius: 20px;
+            background-color: #fff9fb;
+            box-shadow: 0 10px 30px rgba(209, 77, 114, 0.1);
         }
         
         .meaning-text p {
+            margin-bottom: 15px;
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            line-height: 1.8;
-            color: #7a5252;
+            font-size: 1.3rem;
+        }
+        
+        .rose-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .rose-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(209, 77, 114, 0.15);
         }
         
         /* Love Letter Section */
         #love-letter {
-            background-color: var(--soft-pink);
+            background-color: #ffecf1;
         }
         
         .letter-container {
             max-width: 800px;
             margin: 0 auto;
+            padding: 50px;
             background-color: white;
-            padding: 60px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(255, 153, 153, 0.2);
+            box-shadow: 0 15px 35px rgba(209, 77, 114, 0.1);
             position: relative;
-            border: 1px solid var(--blush-pink);
+            border: 1px solid #ffd1dc;
         }
         
-        .letter-container:before {
-            content: "";
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            border: 1px dashed var(--baby-red);
-            border-radius: 10px;
-            pointer-events: none;
+        .letter-header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px dashed #ffb6c1;
+            padding-bottom: 20px;
+        }
+        
+        .letter-header h2 {
+            color: #d14d72;
+            margin-bottom: 10px;
         }
         
         .letter-content {
+            font-size: 1.2rem;
+            line-height: 1.9;
+        }
+        
+        .letter-content p {
+            margin-bottom: 25px;
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            line-height: 1.8;
-            color: #6a4a4a;
         }
         
         .letter-signature {
             text-align: right;
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            color: var(--rose-red);
             margin-top: 40px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #d14d72;
         }
         
         /* Reasons Section */
+        #reasons {
+            background-color: #fff;
+        }
+        
         .reasons-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             max-width: 1000px;
             margin: 0 auto;
         }
         
         .reason-card {
-            background-color: white;
-            border-radius: 15px;
+            background-color: #fff9fb;
             padding: 30px;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(255, 153, 153, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 5px solid var(--baby-red);
+            box-shadow: 0 10px 25px rgba(209, 77, 114, 0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid #ffd1dc;
         }
         
         .reason-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(255, 153, 153, 0.2);
         }
         
-        .reason-icon {
+        .reason-card i {
             font-size: 2.5rem;
-            color: var(--rose-red);
+            color: #d14d72;
             margin-bottom: 20px;
         }
         
-        .reason-text {
-            font-size: 1.3rem;
-            color: #7a5252;
+        .reason-card p {
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
         }
         
-        /* Rose GIF Section */
-        .gif-section {
-            background-color: var(--blush-pink);
+        /* Bouquet Section */
+        #bouquet {
+            background-color: #ffecf1;
             text-align: center;
-            padding: 60px 0;
         }
         
-        .gif-container {
-            max-width: 600px;
+        .bouquet-container {
+            max-width: 800px;
             margin: 0 auto;
+        }
+        
+        .bouquet-container p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            font-family: 'Playfair Display', serif;
+            color: #9d5c7e;
+            font-style: italic;
+        }
+        
+        .bouquet-gif {
+            width: 100%;
+            max-width: 500px;
             border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: white;
-            position: relative;
-        }
-        
-        .gif-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .gif-caption {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            color: var(--rose-red);
-            margin-top: 30px;
-        }
-        
-        /* Fallback bouquet */
-        .fallback-bouquet {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #ffcce6 0%, #ff9999 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            color: white;
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
+            box-shadow: 0 15px 35px rgba(209, 77, 114, 0.2);
+            margin: 0 auto;
         }
         
         /* Ending Section */
-        .ending-section {
+        #ending {
             text-align: center;
             padding: 100px 0;
-            background: linear-gradient(to bottom, var(--cream) 0%, var(--soft-pink) 100%);
+            background: linear-gradient(to bottom, #fff9fb, #ffecf1);
+            position: relative;
         }
         
-        .rose-btn {
+        .ending-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .rose-button {
             display: inline-block;
-            background-color: var(--rose-red);
+            background-color: #d14d72;
             color: white;
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.2rem;
-            padding: 15px 40px;
+            padding: 18px 45px;
             border-radius: 50px;
+            font-size: 1.5rem;
+            font-family: 'Dancing Script', cursive;
             text-decoration: none;
-            margin-bottom: 50px;
-            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
-            transition: all 0.3s;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(209, 77, 114, 0.3);
+            transition: all 0.3s ease;
         }
         
-        .rose-btn:hover {
+        .rose-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
+            box-shadow: 0 15px 25px rgba(209, 77, 114, 0.4);
         }
         
         .signature {
             font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            color: var(--rose-red);
+            font-size: 2.5rem;
+            color: #d14d72;
+            margin-top: 30px;
         }
         
-        /* Music Controls - FIXED */
-        .music-controls {
+        /* Music Player */
+        .music-player {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            z-index: 1001;
-            opacity: 0.9;
-            transition: all 0.3s;
-        }
-        
-        .music-controls:hover {
-            opacity: 1;
-            transform: scale(1.1);
-        }
-        
-        .music-toggle {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background-color: var(--rose-red);
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.5);
-            transition: transform 0.3s;
+            gap: 15px;
         }
         
-        .music-toggle:hover {
-            transform: scale(1.1);
+        .music-btn {
+            background-color: #d14d72;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
         
-        .music-info {
+        .music-btn:hover {
+            background-color: #b83a5f;
+        }
+        
+        /* Falling Petals */
+        .petal {
             position: absolute;
-            top: -30px;
-            right: 0;
-            background: white;
-            padding: 5px 10px;
-            border-radius: 10px;
-            font-size: 0.8rem;
-            color: var(--rose-red);
-            white-space: nowrap;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
+            width: 30px;
+            height: 30px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23d14d72" d="M50,15 C60,5 80,5 90,15 C100,25 100,45 90,55 C80,65 60,65 50,55 C40,65 20,65 10,55 C0,45 0,25 10,15 C20,5 40,5 50,15 Z"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.7;
+            z-index: 1;
         }
         
-        .music-controls:hover .music-info {
-            opacity: 1;
-        }
-        
-        /* Responsive styles */
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 3.5rem;
+            .landing-content h1 {
+                font-size: 3.2rem;
             }
             
-            .tagline {
-                font-size: 1.5rem;
+            .landing-content p {
+                font-size: 1.2rem;
             }
             
-            .section-title {
-                font-size: 2.8rem;
-            }
-            
-            .meaning-text p {
-                font-size: 1.5rem;
-            }
-            
-            .letter-content {
-                font-size: 1.3rem;
-            }
-            
-            .letter-container {
-                padding: 40px 20px;
-            }
-            
-            .gif-caption {
-                font-size: 2rem;
-            }
-            
-            .gif-container {
-                height: 300px;
-            }
-            
-            .music-controls {
-                bottom: 15px;
-                right: 15px;
-                width: 50px;
-                height: 50px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2.8rem;
-            }
-            
-            .section-title {
+            h2 {
                 font-size: 2.2rem;
             }
             
-            .meaning-container {
-                padding: 20px;
+            section {
+                padding: 60px 0;
             }
             
-            .reasons-container {
-                grid-template-columns: 1fr;
+            .letter-container {
+                padding: 30px 20px;
             }
             
-            .gif-container {
-                height: 250px;
+            .music-player {
+                bottom: 20px;
+                right: 20px;
+                padding: 10px;
             }
-            
-            .music-controls {
-                bottom: 10px;
-                right: 10px;
-                width: 45px;
-                height: 45px;
-            }
+        }
+        
+        /* Decorative Elements */
+        .heart {
+            position: absolute;
+            font-size: 1.5rem;
+            color: #ffb6c1;
+            z-index: 0;
         }
     </style>
 </head>
 <body>
-    <!-- Floating petals container -->
-    <div class="petals" id="petals"></div>
-    
-    <!-- Background Music -->
-    <audio id="bgMusic" loop preload="auto">
-        <!-- Beautiful soft romantic piano music -->
-        <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-sunset-687.mp3" type="audio/mpeg">
-    </audio>
-    
-    <!-- Music Controls -->
-    <div class="music-controls">
-        <div class="music-info">Click to play music</div>
-        <button id="musicToggle" class="music-toggle" title="Click to play romantic music">
-            <i class="fas fa-music"></i>
-        </button>
-    </div>
-    
-    <!-- 💌 1. Home / Landing Section -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <h1>For You <span class="heart">🌹</span></h1>
-                <p class="tagline">Happy Rose Day, My Love</p>
-                <!-- REMOVED: "This little corner of the internet is only for you." -->
-            </div>
+    <!-- Landing Section -->
+    <section id="landing">
+        <div class="landing-content">
+            <h1>For You 🌹</h1>
+            <p>"This little corner of the internet is only for you."</p>
+            <div class="heart" style="top: 15%; left: 10%;">❤️</div>
+            <div class="heart" style="top: 20%; right: 15%;">❤️</div>
+            <div class="heart" style="bottom: 25%; left: 20%;">❤️</div>
         </div>
-    </header>
+    </section>
     
-    <!-- 🌹 2. Meaning of Rose Section -->
+    <!-- Meaning of Rose Section -->
     <section id="meaning">
         <div class="container">
-            <h2 class="section-title">The Meaning of a Rose</h2>
-            <div class="meaning-container">
-                <div class="meaning-image">
-                    <img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Beautiful Rose">
-                </div>
+            <h2>Meaning of a Rose</h2>
+            <div class="meaning-content">
                 <div class="meaning-text">
-                    <p>
-                        "A rose isn't just a flower.<br>
-                        It's patience, love, care…<br>
-                        and everything I feel for you."
-                    </p>
+                    <p>A rose isn't just a flower.</p>
+                    <p>It's patience, love, care…</p>
+                    <p>and everything I feel for you.</p>
+                    <p>Like a rose that blooms with time and attention, my love for you grows more beautiful with each passing day. Its delicate petals remind me of the gentle moments we share, and its vibrant color reflects the passion in my heart.</p>
+                    <p>Just as a rose requires nurturing to flourish, I promise to always nurture our relationship with kindness, understanding, and endless devotion.</p>
+                </div>
+                <div class="rose-image">
+                    <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80" alt="Beautiful Rose">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- ❤️ 3. Love Letter Section -->
+    <!-- Love Letter Section -->
     <section id="love-letter">
         <div class="container">
-            <h2 class="section-title">My Love Letter to You</h2>
             <div class="letter-container">
+                <div class="letter-header">
+                    <h2>My Dear Axam ❤️</h2>
+                    <p>Happy Rose Day! 🌹</p>
+                </div>
                 <div class="letter-content">
-                    <p><strong>My Dear Axam ❤️</strong></p>
-                    <p style="margin-top: 20px;">
-                        Happy Rose Day! 
-                        I wanted to send you something special to kick off Valentine's Week. 
-                        They say roses are the universal symbol of love, but honestly, 
-                        no flower could ever be as handsome or as wonderful as you are.
-                    </p>
-                    <p style="margin-top: 20px;">
-                        Thank you for being the person who adds so much color and fragrance to my life. 
-                        Just like a rose, our relationship is beautiful and rare, 
-                        and I promise to keep nurturing it every single day.
-                    </p>
-                    <p style="margin-top: 20px;">
-                        You're my favorite person, today and always.
-                    </p>
+                    <p>I wanted to send you something special to kick off Valentine's Week. They say roses are the universal symbol of love, but honestly, no flower could ever be as handsome or as wonderful as you are.</p>
+                    <p>Thank you for being the person who adds so much color and fragrance to my life. Just like a rose, our relationship is beautiful and rare, and I promise to keep nurturing it every single day.</p>
+                    <p>You're my favorite person, today and always.</p>
                     <div class="letter-signature">
                         Love you forever,<br>
-                        Hanshika <span class="heart">❤️</span>
+                        Hanshika ❤️
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- 🌷 4. Reasons I'd Give You a Rose Section -->
+    <!-- Reasons Section -->
     <section id="reasons">
         <div class="container">
-            <h2 class="section-title">Reasons I'd Give You a Rose</h2>
+            <h2>Reasons I'd Give You a Rose</h2>
             <div class="reasons-container">
                 <div class="reason-card">
-                    <div class="reason-icon">💗</div>
-                    <div class="reason-text">Because you make me smile effortlessly</div>
+                    <i class="fas fa-smile"></i>
+                    <p>Because you make me smile effortlessly</p>
                 </div>
                 <div class="reason-card">
-                    <div class="reason-icon">🏡</div>
-                    <div class="reason-text">Because you feel like home</div>
+                    <i class="fas fa-home"></i>
+                    <p>Because you feel like home</p>
                 </div>
                 <div class="reason-card">
-                    <div class="reason-icon">🌷</div>
-                    <div class="reason-text">Because you're kind, patient, and real</div>
+                    <i class="fas fa-heart"></i>
+                    <p>Because you're kind, patient, and real</p>
                 </div>
                 <div class="reason-card">
-                    <div class="reason-icon">❤️</div>
-                    <div class="reason-text">Because I love you</div>
+                    <i class="fas fa-infinity"></i>
+                    <p>Because I love you, now and forever</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- 🌹 5. Rose GIF / Bouquet Section -->
-    <section class="gif-section">
+    <!-- Bouquet Section -->
+    <section id="bouquet">
         <div class="container">
-            <div class="gif-container" id="bouquetContainer">
-                <!-- Working Rose Bouquet GIF -->
-                <img src="https://media.tenor.com/WPVpIHuwp8wAAAAi/flowers-hearts.gif" 
-                     alt="Rose Bouquet Animation"
-                     onerror="showFallback()">
+            <div class="bouquet-container">
+                <h2>A Bouquet Just For You</h2>
+                <div class="bouquet-gif">
+                    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Rose Bouquet" style="width:100%; border-radius:20px;">
+                </div>
+                <p>"If I could, I'd give you a thousand roses today."</p>
             </div>
-            <p class="gif-caption">"If I could, I'd give you a thousand roses today."</p>
         </div>
     </section>
     
-    <!-- ✨ 6. Ending Section -->
-    <section class="ending-section">
+    <!-- Ending Section -->
+    <section id="ending">
         <div class="container">
-            <a href="#" class="rose-btn">This rose is yours. Always.</a>
-            <div class="signature">
-                — Yours <span class="heart">❤️</span>
+            <div class="ending-content">
+                <a href="#" class="rose-button">This rose is yours. Always.</a>
+                <div class="signature">
+                    — Yours ❤️
+                </div>
             </div>
         </div>
     </section>
+    
+    <!-- Music Player -->
+    <div class="music-player">
+        <button id="playBtn" class="music-btn">
+            <i class="fas fa-play"></i>
+        </button>
+        <span style="font-family: 'Dancing Script', cursive; font-size: 1.2rem;">Romantic Piano</span>
+        <audio id="bgMusic" loop>
+            <!-- We'll use a placeholder audio since we can't create original music -->
+            <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-sunset-687.mp3" type="audio/mpeg">
+        </audio>
+    </div>
     
     <script>
-        // ========== FIXED: FLOATING PETALS ==========
+        // Create falling petals
         function createPetals() {
-            const petalsContainer = document.getElementById('petals');
             const petalCount = 25;
+            const body = document.querySelector('body');
             
             for (let i = 0; i < petalCount; i++) {
                 const petal = document.createElement('div');
                 petal.classList.add('petal');
                 
-                // Size
-                const size = Math.random() * 15 + 10;
+                // Random position
+                const startX = Math.random() * 100;
+                const startY = -10;
+                
+                // Random size
+                const size = 15 + Math.random() * 25;
+                
+                // Random fall duration
+                const duration = 15 + Math.random() * 20;
+                
+                // Random delay
+                const delay = Math.random() * 5;
+                
+                // Random rotation
+                const rotation = Math.random() * 360;
+                
+                // Apply styles
+                petal.style.left = `${startX}vw`;
+                petal.style.top = `${startY}vh`;
                 petal.style.width = `${size}px`;
                 petal.style.height = `${size}px`;
+                petal.style.transform = `rotate(${rotation}deg)`;
+                petal.style.animation = `fall ${duration}s linear ${delay}s infinite`;
                 
-                // Starting position
-                petal.style.left = `${Math.random() * 100}vw`;
-                petal.style.top = `-50px`;
-                
-                // Animation duration
-                const duration = Math.random() * 15 + 10;
-                petal.style.animationDuration = `${duration}s`;
-                
-                // Animation delay
-                const delay = Math.random() * 5;
-                petal.style.animationDelay = `${delay}s`;
-                
-                // Color variation
-                const hue = Math.random() * 20 + 340;
-                petal.style.backgroundColor = `hsl(${hue}, 100%, 70%)`;
-                
-                petalsContainer.appendChild(petal);
+                // Add to body
+                body.appendChild(petal);
             }
-        }
-        
-        // ========== FIXED: GIF FALLBACK ==========
-        function showFallback() {
-            const bouquetContainer = document.getElementById('bouquetContainer');
-            bouquetContainer.innerHTML = `
-                <div class="fallback-bouquet">
-                    <div style="font-size: 4rem;">🌹🌹🌹</div>
-                    <div style="font-size: 2rem; margin-top: 20px;">A Bouquet of Roses For You</div>
-                    <div style="font-size: 3rem; margin-top: 10px;">💐</div>
-                </div>
+            
+            // Add the animation keyframes
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fall {
+                    0% {
+                        transform: translate(0, 0) rotate(0deg);
+                        opacity: 0.8;
+                    }
+                    10% {
+                        transform: translate(-10px, 10vh) rotate(36deg);
+                    }
+                    20% {
+                        transform: translate(10px, 20vh) rotate(72deg);
+                    }
+                    30% {
+                        transform: translate(-10px, 30vh) rotate(108deg);
+                    }
+                    40% {
+                        transform: translate(10px, 40vh) rotate(144deg);
+                    }
+                    50% {
+                        transform: translate(-10px, 50vh) rotate(180deg);
+                    }
+                    60% {
+                        transform: translate(10px, 60vh) rotate(216deg);
+                    }
+                    70% {
+                        transform: translate(-10px, 70vh) rotate(252deg);
+                    }
+                    80% {
+                        transform: translate(10px, 80vh) rotate(288deg);
+                    }
+                    90% {
+                        transform: translate(-10px, 90vh) rotate(324deg);
+                    }
+                    100% {
+                        transform: translate(0, 100vh) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
             `;
+            document.head.appendChild(style);
         }
         
-        // ========== FIXED: MUSIC PLAYER ==========
-        const musicToggle = document.getElementById('musicToggle');
+        // Music player functionality
+        const playBtn = document.getElementById('playBtn');
         const bgMusic = document.getElementById('bgMusic');
         let isPlaying = false;
         
-        // Set volume
-        bgMusic.volume = 0.5;
+        playBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                bgMusic.pause();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                bgMusic.play();
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            isPlaying = !isPlaying;
+        });
         
-        // Function to start music
-        function startMusic() {
-            bgMusic.play()
-                .then(() => {
+        // Create decorative hearts
+        function createHearts() {
+            const heartCount = 8;
+            const sections = document.querySelectorAll('section');
             
+            sections.forEach(section => {
+                for (let i = 0; i < heartCount; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤️';
+                    
+                    // Random position
+                    const top = Math.random() * 80 + 10;
+                    const left = Math.random() * 80 + 10;
+                    
+                    // Random size
+                    const size = 0.8 + Math.random() * 1.5;
+                    
+                    // Random opacity
+                    const opacity = 0.2 + Math.random() * 0.3;
+                    
+                    // Apply styles
+                    heart.style.top = `${top}%`;
+                    heart.style.left = `${left}%`;
+                    heart.style.fontSize = `${size}rem`;
+                    heart.style.opacity = opacity;
+                    heart.style.zIndex = '0';
+                    
+                    // Add to section
+                    section.appendChild(heart);
+                }
+            });
+        }
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement =
