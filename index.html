@@ -40,7 +40,7 @@
             position: relative;
         }
         
-        /* Floating roses/petals animation */
+        /* Floating roses/petals animation - FIXED */
         .petals {
             position: fixed;
             top: 0;
@@ -48,7 +48,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: -1;
+            z-index: 999;
         }
         
         .petal {
@@ -56,12 +56,27 @@
             background-color: var(--baby-red);
             border-radius: 50% 0 50% 50%;
             opacity: 0.6;
-            animation: float linear infinite;
+            width: 20px;
+            height: 20px;
+            animation-name: float;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
         }
         
         @keyframes float {
-            to {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
                 transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
             }
         }
         
@@ -236,6 +251,7 @@
         .gif-section {
             background-color: var(--blush-pink);
             text-align: center;
+            padding: 60px 0;
         }
         
         .gif-container {
@@ -249,11 +265,13 @@
             align-items: center;
             justify-content: center;
             background-color: white;
+            position: relative;
         }
         
         .gif-container img {
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
         
@@ -262,6 +280,20 @@
             font-size: 2.5rem;
             color: var(--rose-red);
             margin-top: 30px;
+        }
+        
+        /* Fallback bouquet */
+        .fallback-bouquet {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ffcce6 0%, #ff9999 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
         }
         
         /* Ending Section */
@@ -296,15 +328,15 @@
             color: var(--rose-red);
         }
         
-        /* Music Controls */
+        /* Music Controls - FIXED */
         .music-controls {
             position: fixed;
             bottom: 20px;
             right: 20px;
             width: 60px;
             height: 60px;
-            z-index: 1000;
-            opacity: 0.8;
+            z-index: 1001;
+            opacity: 0.9;
             transition: all 0.3s;
         }
         
@@ -346,6 +378,7 @@
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             opacity: 0;
             transition: opacity 0.3s;
+            pointer-events: none;
         }
         
         .music-controls:hover .music-info {
@@ -425,14 +458,13 @@
     </style>
 </head>
 <body>
-    <!-- Floating petals -->
+    <!-- Floating petals container -->
     <div class="petals" id="petals"></div>
     
     <!-- Background Music -->
-    <audio id="bgMusic" loop>
+    <audio id="bgMusic" loop preload="auto">
         <!-- Beautiful soft romantic piano music -->
         <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-sunset-687.mp3" type="audio/mpeg">
-        Your browser does not support background music.
     </audio>
     
     <!-- Music Controls -->
@@ -473,7 +505,7 @@
         </div>
     </section>
     
-    <!-- ❤️ 3. Love Letter Section (YOUR CUSTOM LETTER) -->
+    <!-- ❤️ 3. Love Letter Section -->
     <section id="love-letter">
         <div class="container">
             <h2 class="section-title">My Love Letter to You</h2>
@@ -531,9 +563,11 @@
     <!-- 🌹 5. Rose GIF / Bouquet Section -->
     <section class="gif-section">
         <div class="container">
-            <div class="gif-container">
-                <!-- WORKING Rose Bouquet GIF -->
-                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdng0emM4cm9uYmlhN2t5bTdzZG9rNWlqeGVxejc1bmV4MXFrb25rYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0MYHnqKkkk8lRgkU/giphy.gif" alt="Rose Bouquet Animation">
+            <div class="gif-container" id="bouquetContainer">
+                <!-- Working Rose Bouquet GIF -->
+                <img src="https://media.tenor.com/WPVpIHuwp8wAAAAi/flowers-hearts.gif" 
+                     alt="Rose Bouquet Animation"
+                     onerror="showFallback()">
             </div>
             <p class="gif-caption">"If I could, I'd give you a thousand roses today."</p>
         </div>
@@ -550,7 +584,7 @@
     </section>
     
     <script>
-        // Create floating petals
+        // ========== FIXED: FLOATING PETALS ==========
         function createPetals() {
             const petalsContainer = document.getElementById('petals');
             const petalCount = 25;
@@ -559,22 +593,24 @@
                 const petal = document.createElement('div');
                 petal.classList.add('petal');
                 
-                // Random size
-                const size = Math.random() * 20 + 10;
+                // Size
+                const size = Math.random() * 15 + 10;
                 petal.style.width = `${size}px`;
                 petal.style.height = `${size}px`;
                 
-                // Random position
+                // Starting position
                 petal.style.left = `${Math.random() * 100}vw`;
+                petal.style.top = `-50px`;
                 
-                // Random animation duration
-                const duration = Math.random() * 20 + 10;
+                // Animation duration
+                const duration = Math.random() * 15 + 10;
                 petal.style.animationDuration = `${duration}s`;
                 
-                // Random delay
-                petal.style.animationDelay = `${Math.random() * 5}s`;
+                // Animation delay
+                const delay = Math.random() * 5;
+                petal.style.animationDelay = `${delay}s`;
                 
-                // Random color variation
+                // Color variation
                 const hue = Math.random() * 20 + 340;
                 petal.style.backgroundColor = `hsl(${hue}, 100%, 70%)`;
                 
@@ -582,51 +618,28 @@
             }
         }
         
-        // Background music functionality
+        // ========== FIXED: GIF FALLBACK ==========
+        function showFallback() {
+            const bouquetContainer = document.getElementById('bouquetContainer');
+            bouquetContainer.innerHTML = `
+                <div class="fallback-bouquet">
+                    <div style="font-size: 4rem;">🌹🌹🌹</div>
+                    <div style="font-size: 2rem; margin-top: 20px;">A Bouquet of Roses For You</div>
+                    <div style="font-size: 3rem; margin-top: 10px;">💐</div>
+                </div>
+            `;
+        }
+        
+        // ========== FIXED: MUSIC PLAYER ==========
         const musicToggle = document.getElementById('musicToggle');
         const bgMusic = document.getElementById('bgMusic');
         let isPlaying = false;
         
-        // Set initial volume to 50%
+        // Set volume
         bgMusic.volume = 0.5;
         
-        // Function to play music
-        function playMusic() {
+        // Function to start music
+        function startMusic() {
             bgMusic.play()
                 .then(() => {
-                    isPlaying = true;
-                    musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
-                    musicToggle.title = "Click to pause music";
-                    console.log("Music started playing");
-                })
-                .catch(error => {
-                    console.log("Music play failed:", error);
-                    // Show user they need to click to play
-                    musicToggle.innerHTML = '<i class="fas fa-play"></i>';
-                    musicToggle.title = "Click to play romantic music";
-                });
-        }
-        
-        // Initialize music on user interaction
-        function initMusicOnInteraction() {
-            document.body.addEventListener('click', function startMusic() {
-                if (!isPlaying) {
-                    playMusic();
-                }
-                document.body.removeEventListener('click', startMusic);
-            }, { once: true });
-        }
-        
-        // Start music when page loads (will work on some browsers)
-        document.addEventListener('DOMContentLoaded', function() {
-            const playPromise = bgMusic.play();
             
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    isPlaying = true;
-                    musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
-                    musicToggle.title = "Click to pause music";
-                }).catch(() => {
-                    // Auto-play was prevented
-                    isPlaying = false;
-              
