@@ -395,9 +395,9 @@
     <!-- Floating petals -->
     <div class="petals" id="petals"></div>
     
-    <!-- Background Music with online source -->
+    <!-- Background Music with soft romantic piano -->
     <audio id="bgMusic" loop>
-        <!-- Using a beautiful copyright-free romantic piano music from Pixabay -->
+        <!-- Beautiful soft romantic piano music -->
         <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-sunset-687.mp3" type="audio/mpeg">
         Your browser does not support background music.
     </audio>
@@ -409,7 +409,7 @@
         </button>
     </div>
     
-    <!-- Home / Landing Section -->
+    <!-- 💌 1. Home / Landing Section -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -422,7 +422,7 @@
         </div>
     </header>
     
-    <!-- Meaning of Rose Section -->
+    <!-- 🌹 2. Meaning of Rose Section -->
     <section id="meaning">
         <div class="container">
             <h2 class="section-title">The Meaning of a Rose</h2>
@@ -441,7 +441,7 @@
         </div>
     </section>
     
-    <!-- Love Letter Section -->
+    <!-- ❤️ 3. Love Letter Section (MOST IMPORTANT) -->
     <section id="love-letter">
         <div class="container">
             <h2 class="section-title">My Love Letter to You</h2>
@@ -470,7 +470,7 @@
         </div>
     </section>
     
-    <!-- Reasons Section -->
+    <!-- 🌷 4. Reasons I'd Give You a Rose Section -->
     <section id="reasons">
         <div class="container">
             <h2 class="section-title">Reasons I'd Give You a Rose</h2>
@@ -489,31 +489,24 @@
                 </div>
                 <div class="reason-card">
                     <div class="reason-icon">❤️</div>
-                    <div class="reason-text">Because I love you more each day</div>
-                </div>
-                <div class="reason-card">
-                    <div class="reason-icon">✨</div>
-                    <div class="reason-text">Because you make ordinary moments magical</div>
-                </div>
-                <div class="reason-card">
-                    <div class="reason-icon">🌹</div>
-                    <div class="reason-text">Because you deserve all the roses in the world</div>
+                    <div class="reason-text">Because I love you</div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Rose GIF Section -->
+    <!-- 🌹 5. Rose GIF / Bouquet Section -->
     <section class="gif-section">
         <div class="container">
             <div class="gif-container">
-                <img src="https://i.pinimg.com/originals/85/d9/23/85d923801d54719a2b5db84f8c8d5f6e.gif" alt="Rose Bouquet Animation">
+                <!-- Beautiful working rose bouquet GIF -->
+                <img src="https://media.giphy.com/media/l0MYHnqKkkk8lRgkU/giphy.gif" alt="Rose Bouquet Animation">
             </div>
             <p class="gif-caption">"If I could, I'd give you a thousand roses today."</p>
         </div>
     </section>
     
-    <!-- Ending Section -->
+    <!-- ✨ 6. Ending Section -->
     <section class="ending-section">
         <div class="container">
             <a href="#" class="rose-btn">This rose is yours. Always.</a>
@@ -556,12 +549,12 @@
             }
         }
         
-        // Background music functionality (completely hidden)
+        // Background music functionality
         const musicToggle = document.getElementById('musicToggle');
         const bgMusic = document.getElementById('bgMusic');
         let isPlaying = false;
         
-        // Set initial volume to 40% for subtle background music
+        // Set initial volume to 40% for soft background music
         bgMusic.volume = 0.4;
         
         // Try to auto-play music on page load
@@ -617,4 +610,10 @@
                     }
                 });
             }
-        
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Initial check
+        });
+    </script>
+</body>
+</html>
